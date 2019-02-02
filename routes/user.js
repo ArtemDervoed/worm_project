@@ -57,4 +57,21 @@ router.get('/', function(req, res, next) {
     });
   });
 
+  router.get('/:id', function(req, res, next) {
+    if(!req.body) return res.sendStatus(400);
+      Student.findOne({
+        where: {
+          id: Number(req.params.id),
+        }
+      }).then((student) => {
+        if (student) {
+          res.send({ "status": "200 OK", "student":  student })
+        } else {
+          res.send({ "message": "Not found" });
+        }
+      }).catch((err) => {
+        res.send({ "message": "Something went wrong", "err": err });
+      });
+    });
+
 module.exports = router;
