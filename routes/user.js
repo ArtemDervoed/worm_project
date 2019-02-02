@@ -41,7 +41,6 @@ router.post('/create', function(req, res, next) {
 });
 
 router.get('/', function(req, res, next) {
-  console.log(req.query)
   if(!req.body) return res.sendStatus(400);
     Student.findAll({
       where: {
