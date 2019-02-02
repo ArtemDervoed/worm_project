@@ -1,0 +1,30 @@
+extends layout
+
+block content
+    h1 Registration
+    form(action="/registration" method="post")
+        label(for="email") Email
+        input(id="email" type="email" name="email")
+        span #{error.email}
+        br
+        label(for="first_name") First name
+        input(id="first_name" type="text" name="first_name")
+        span #{error.firstName}
+        br
+        label(for="last_name") Last name
+        input(id="last_name" type="text" name="last_name")
+        span #{error.lastName}
+        br
+        label(for="doc_number") Doc number
+        input(id="doc_number" type="text" name="doc_number")
+        span #{error.docNumber}
+        br
+        label(for="password") Password
+        input(id="password" type="password" name="password")
+        span #{error.password}
+        br
+        label(for="confirm_password") Confirm password
+        input(id="confirm_password" type="password" name="confirm_password")
+        span #{error.confirmPassword}
+        br
+        input(type="submit" value="Отправить")
