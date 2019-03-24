@@ -8,6 +8,8 @@ var passport = require('passport')
 var indexRouter = require('./routes/index');
 var userRouter = require('./routes/user');
 var groupRouter = require('./routes/group');
+var subjectRouter = require('./routes/subject');
+var labRouter = require('./routes/lab');
 
 var app = express();
 
@@ -25,8 +27,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', indexRouter);
-app.use('/user', userRouter);
-app.use('/group', groupRouter);
+app.use('/users', userRouter);
+app.use('/groups', groupRouter);
+app.use('/subjects', subjectRouter);
+app.use('/labs', labRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
